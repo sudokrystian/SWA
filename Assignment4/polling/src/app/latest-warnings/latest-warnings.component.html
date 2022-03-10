@@ -1,0 +1,37 @@
+<h3>Latest Warnings data</h3>
+<div *ngIf="latestDataToDisplay">{{latestDataToDisplay.time}}
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>severity</th>
+        <th>from</th>
+        <th>to</th>
+        <th>direction</th>
+        <th>precipitation types</th>
+        <th>type</th>
+        <th>unit</th>
+        <th>time</th>
+        <th>place</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr *ngFor="let item of latestDataToDisplay.warnings">
+        <td>{{item.id}}</td>
+        <td>{{item.severity}}</td>
+        <td *ngIf="item.prediction">{{ item.prediction.from }}</td>
+        <td *ngIf="item.prediction">{{item.prediction.to}}</td>
+        <td *ngIf="item.prediction">{{item.prediction.directions}}</td>
+        <td *ngIf="item.prediction">{{item.prediction.precipitation_types}}</td>
+        <td *ngIf="item.prediction">{{item.prediction.type}}</td>
+        <td *ngIf="item.prediction">{{item.prediction.unit}}</td>
+        <td *ngIf="item.prediction">{{item.prediction.time}}</td>
+        <td *ngIf="item.prediction">{{item.prediction.place}}</td>
+      </tr>
+    </tbody>
+  </table>
+   
+</div>
+
+<hr>
